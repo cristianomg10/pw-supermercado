@@ -28,3 +28,4 @@ Route::post('/produtos/novo/{id?}',
 Route::get('/produtos/edit/{id}', 
     [ProdutosController::class, 'edit'])
     ->name('prod.edit');
+Route::get('/produtos/delete/{id}', [ProdutosController::class, 'delete'])->name('prod.delete');
