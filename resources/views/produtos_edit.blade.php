@@ -20,6 +20,15 @@
     <input type="number" class="form-control" id="valor" value="{{ $p->valor }}" placeholder="Valor" step="0.01" name="valor">
     <label for="valor">Valor</label>
     </div>
+
+    <select name="categoria_id" class="form-select mb-3" aria-label="Default select example">
+    @foreach($categorias as $c)
+    <option value="{{ $c->id }}"
+    {{ ($c->id == $p->categoria_id ? "selected" : "" ) }}
+    >{{ $c->nome }}</option>
+    @endforeach
+    </select>
+
     <input type="submit" value="Salvar" 
         class="btn btn-success" />
 </form>

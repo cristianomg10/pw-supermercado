@@ -4,6 +4,9 @@
 
 @section('conteudo')
 <h1>Produtos</h1>
+@if(session()->has('mensagem'))
+<div class="alert alert-info">{{ session('mensagem') }}</div>
+@endif
 <table class="table table-striped">
     <thead>
         <tr>
@@ -11,6 +14,7 @@
             <th>Nome</th>
             <th>Estoque</th>
             <th>Valor</th>
+            <th>Categoria</th>
             <th>Data criação</th>
             <th>Operações</th>
         </tr>
@@ -22,6 +26,7 @@
             <td>{{ $p->nome }}</td>
             <td>{{ $p->estoque }}</td>
             <td>{{ $p->valor }}</td>
+            <td>{{ $p->categoria->nome ?? "" }}</td>
             <td>{{ $p->created_at }}</td>
             <td>
                 <a href="{{ route('prod.edit', ['id' => $p->id]) }}" 
